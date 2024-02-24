@@ -1,0 +1,71 @@
+import json
+
+main() - of course.
+Runs the main loop
+Calls a menu
+	0-5, exit game, play default game, load game, save game, edit node, play game 
+Sends control to other parts of the program
+
+getMenuChoice()
+prints a menu of user options
+	print(0-5, exit game, play default game, load game, save game, edit node, play game)
+if (0-5) # make an if/elif for each one) 
+	do whatever the choice is
+else:
+	repeats if input is invalid
+returns a valid menu choice
+
+playGame()
+runs the game
+Keeps going until next node is "quit"
+
+playNode()
+given the game data and a node,
+plays out the node
+returns the next node
+
+getDefaultGame()
+keepgoing = true
+	if node == quit
+		keepGoing = False
+creates a single-node default game
+	start: "Do you want to play?", "Yes", "Start", "No", "Quit")
+	
+returns that data structure
+
+editNode()
+given the current game structure...
+	print dictionary
+list all the current node names
+get a node name
+if that node exists
+copy that node to newNode
+otherwise...
+create newNode with empty data
+
+use editField() to allow user to edit each node
+return the now edited newNode
+
+editField()
+get a field name
+print the field's current value
+if the user presses 'enter' immediately
+retain the current value
+otherwise...
+use the new value
+
+saveGame()
+save the game to a data file
+	json.dump(game.dat, outFile, indent = 2)
+you can preset the file name (eg 'game.dat')
+
+print the current game dictionary in human-readable format
+Save the file in JSON format
+	outFile.close()
+
+loadGame()
+presume there is a data file named 'game.dat' in the current directory
+outFile = open("game.dat", "r")
+open that file
+load the data into the game object
+return that game object
